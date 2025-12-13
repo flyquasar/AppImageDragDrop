@@ -21,6 +21,7 @@ else
 cat > ~/autoAppsInstall.service << EOF
 writting to file..
 EOF
+##TO DO: Add actual service content later - create another bash script
         echo "Prepared."
 fi
 
