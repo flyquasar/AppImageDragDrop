@@ -20,10 +20,7 @@ The script `AppImageDragDrop.sh` is designed to process files passed to it. You 
     chmod +x AppImageDragDrop.sh
     ```
 
-3. Drag and drop an AppImage file onto the script or run it directly:
-    ```bash
-    ./AppImageDragDrop.sh <path-to-appimage>
-    ```
+3. 
 
 ### Example
 
