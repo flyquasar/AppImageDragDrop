@@ -1,12 +1,12 @@
 # AppImageDragDrop
 
-This repository contains a script to simplify the process of handling AppImage files with drag-and-drop functionality.
-
+This repository contains a script to simplify the process of handling AppImage files with drag-and-drop functionality. Inspired by macOS where the user can drag and drop an app into the Applications folder
+![Alt text](readme_src/installmac.png)
 ## Features
 
 - Drag and drop AppImage files for easy management.
 - Automates adding executing privileges to AppImages and creating .desktop entries.
-- Includes a custom parameter `remove` for additional functionality.
+- Includes a custom parameter `remove` to easily remove the service.
 
 ## Usage
 
@@ -23,8 +23,14 @@ This repository contains a script to simplify the process of handling AppImage f
 
 3. Run the script with the desired options:
     ```bash
-    ./AppImageDragDrop.sh [options]
+    ./AppImageDragDrop.sh
     ```
+## Removal
+1. Run the script with the "remove" option to remove the service:
+    ```bash
+    ./AppImageDragDrop.sh remove
+    ```
+
 
 ## Script Overview
 
@@ -33,7 +39,7 @@ This repository contains a script to simplify the process of handling AppImage f
 ## Requirements
 
 - Bash shell
-- Dependencies (if any)
+- inotify-tools (script will install)
 
 ## Contributing
 
