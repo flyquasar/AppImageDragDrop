@@ -35,4 +35,4 @@ The script will process the file and perform the necessary actions.
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the GPLv2 License. See the [LICENSE](LICENSE) file for details.
