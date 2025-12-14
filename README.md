@@ -4,6 +4,10 @@ This repository contains a script to simplify the process of handling AppImage f
 ![Alt text](readme_src/installmac.png)
 
 # DEMO
+<figure class="video_container">
+  <iframe src="readme_src/demo.mp4" frameborder="0" allowfullscreen="true"> 
+</iframe>
+</figure>
 ![Demo](readme_src/demo.mp4)
 
 ## Features
