@@ -48,14 +48,7 @@ This repository contains a script to simplify the process of handling AppImage f
 - Bash shell
 - inotify-tools (script will install)
 
-## Contributing
-
-Contributions are welcome! Feel free to open issues or submit pull requests.
 
 ## License
 
 This project is licensed under the [GPLv2 License](LICENSE).
-
-## Acknowledgments
-
-Thanks to the open-source community for inspiration and support.
