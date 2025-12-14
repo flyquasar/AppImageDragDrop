@@ -1,8 +1,8 @@
 #!/bin/bash
 #Perform preflight checks---------------------------------------------
-dir=~/Applications/
-icons=~/Applications/.icons/
-service_file=~/.config/systemd/user/autoAppImageInstall.service
+dir=$HOME/Applications/
+icons=$HOME/Applications/.icons/
+service_file=$HOME/.config/systemd/user/autoAppImageInstall.service
 
 targetdir="$HOME/scripts/AppImageDragDrop"
 targetdir=$(realpath -m "$targetdir")
@@ -14,35 +14,48 @@ if [ "$script_dir" != "$targetdir" ]; then
     echo "Moving AppImageDragDrop folder to $targetdir..."
     mkdir -p "$(dirname "$targetdir")"
     mv "$script_dir" "$targetdir"
-    echo "Folder moved to $targetdir. Please run the script from there."
+    echo "Folder moved to $targetdir."
     exec "$targetdir/AppImageDragDrop.sh" "$@"
 fi
 
 if [ -d $dir ] && [ -d $icons ];then
-	echo "It exists nothing else to be done."
+	echo "Needed folders found."
 else
-	mkdir ~/Applications
-	mkdir ~/Applications/.icons
+	mkdir $HOME/Applications
+	mkdir $HOME/Applications/.icons
 	echo "Needed to make folders in"
-	ls -l ~ |  grep Applications
+	ls -l $HOME |  grep Applications
 fi
 
 if [ -f $service_file ];then
 	echo "Service file found"
 else
 	echo "Preping service.."
-cat > ~/.config/systemd/user/autoAppImageInstall.service << EOF
+cat > $HOME/.config/systemd/user/autoAppImageInstall.service << EOF
 [Unit]
 Description=service to auto install AppImages dropped in Applications folder
 After=default.target
 [Service]
-ExecStart=%h/scripts/AppImageDragDrop.sh
+WorkingDirectory=%h/scripts/AppImageDragDrop
+ExecStart=%h/scripts/AppImageDragDrop/AppImageDragDrop.sh runner
 Restart=always
 RestartSec=5
 [Install]
 WantedBy=default.target
 EOF
-##TO DO: Add actual service content later - create another bash script
+#------------------------------------------
+
+# Reload systemd to pick up the new unit
+systemctl --user daemon-reload
+
+# Enable the service (start on login)
+systemctl --user enable autoAppImageInstall.service
+
+# Start the service immediately
+systemctl --user start autoAppImageInstall.service
+
+echo "Service autoAppImageInstall.service enabled and started."
+echo "It will now run automatically at user login."
         echo "Prepared."
 fi
 

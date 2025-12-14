@@ -1,11 +1,15 @@
 #!/bin/bash
 if [ "$1" = "remove" ];then
 	echo "removing service file and icons"
-else
+fi
 ## Perform preflight checks---------------------------------------------
 	source sub_scripts/pre_flight_script.sh
 ## End Perform preflight checks---------------------------------------------
 
+if [ "$1" != "runner" ];then
+	echo "Script ran as installation/preparation mode. Exiting now."
+	exit 0
+fi
 
 inotifywait -m -e close_write -e "moved_to" "$dir" |
 	while read -r directory event file; do
@@ -32,4 +36,3 @@ Exec=$dir$file
 EOF
 		fi
 	done
-fi
