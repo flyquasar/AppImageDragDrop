@@ -1,6 +1,11 @@
 #!/bin/bash
 if [ "$1" = "remove" ];then
-	echo "removing service file and icons"
+	echo "removing service file and disabling service..."
+	systemctl --user stop autoAppImageInstall.service
+	systemctl --user disable autoAppImageInstall.service
+	rm $HOME/.config/systemd/user/autoAppImageInstall.service
+	systemctl --user daemon-reload
+	exit 0
 fi
 ## Perform preflight checks---------------------------------------------
 	source sub_scripts/pre_flight_script.sh
