@@ -5,7 +5,7 @@ This repository contains a script to simplify the process of handling AppImage f
 
 # DEMO
 
-![Demo](readme_src/demo_w.webp)
+![Demo](readme_src/demo_w2.webp)
 
 ## Features
 
