@@ -22,7 +22,6 @@ inotifywait -m -e close_write -e "moved_to" "$dir" |
 
 		echo "Adding +x permission to $dir$file"
 		chmod +x "$dir/$file"
-		touch ~/.local/share/applications/"$basename".desktop
 		cat > ~/.local/share/applications/"$basename".desktop << EOF
 [Desktop Entry]
 Version=1.0

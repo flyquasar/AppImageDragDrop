@@ -2,7 +2,7 @@
 #Perform preflight checks---------------------------------------------
 dir=~/Applications/
 icons=~/Applications/.icons/
-file=~/autoAppsInstall.service
+service_file=~/.config/systemd/user/autoAppImageInstall.service
 
 targetdir="$HOME/scripts/AppImageDragDrop"
 targetdir=$(realpath -m "$targetdir")
@@ -27,14 +27,13 @@ else
 	ls -l ~ |  grep Applications
 fi
 
-if [ -f $file ];then
+if [ -f $service_file ];then
 	echo "Service file found"
 else
 	echo "Preping service.."
-	touch ~/autoAppsInstall.service
-cat > ~/autoAppsInstall.service << EOF
+cat > ~/.config/systemd/user/autoAppImageInstall.service << EOF
 [Unit]
-Description=Inotify watcher for AppImages
+Description=service to auto install AppImages dropped in Applications folder
 After=default.target
 [Service]
 ExecStart=%h/scripts/AppImageDragDrop.sh
