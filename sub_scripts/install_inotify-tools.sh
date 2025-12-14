@@ -1,5 +1,4 @@
 #!/bin/bash
-testvar="install hiii"
 echo "start of install_inotify-tools.sh------------------------------------"
 echo "running install_inotify-tools.sh"
 haveProg() {

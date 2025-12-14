@@ -62,7 +62,6 @@ fi
 ##run sub script to install inotify-tools if not present
 #---------------------------------------------------
 source sub_scripts/install_inotify-tools.sh
-echo $testvar
 #---------------------------------------------------
 
 #End Perform preflight checks---------------------------------------------

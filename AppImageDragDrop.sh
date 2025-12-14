@@ -7,7 +7,9 @@ fi
 ## End Perform preflight checks---------------------------------------------
 
 if [ "$1" != "runner" ];then
-	echo "Script ran as installation/preparation mode. Exiting now."
+	echo "Script ran as installation/preparation mode."
+	echo "Complete."
+	echo "Exiting now."
 	exit 0
 fi
 
