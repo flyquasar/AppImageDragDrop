@@ -9,11 +9,11 @@ This repository contains a script to simplify the process of handling AppImage f
 
 ## Features
 
-- Drag and drop AppImage files for easy management.
+- Drag and drop AppImage files into Applications folder for easy management.
 - Automates adding executing privileges to AppImages and creating .desktop entries.
 - Includes a custom parameter `remove` to easily remove the service.
 
-## Usage
+## Installation
 
 1. Clone the repository
    Or download the zip file under the green code button:
@@ -28,12 +28,21 @@ This repository contains a script to simplify the process of handling AppImage f
     chmod +x AppImageDragDrop.sh
     ```
 
-3. Run the script with the desired options:
+3. Run the script:
     ```bash
     ./AppImageDragDrop.sh
     ```
+    Running it, it will move it self to ~/scripts/AppImageDragDrop
+    This is done for a few reasons:
+
+    📂 Centralized location – All scripts live in one predictable folder (~/scripts/AppImageDragDrop), making them easier to find and manage.
+
+    🔄 Consistency – Instead of scattering files across different directories, everything is grouped together, reducing confusion.
+
+    🧹 Easy clean up
+
 ## Removal
-1. Run the script with the "remove" option to remove the service:
+1. Run the script with the "remove" option to remove the service - Applications folder will be kept:
     ```bash
     ./AppImageDragDrop.sh remove
     ```
