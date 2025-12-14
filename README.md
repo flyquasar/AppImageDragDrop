@@ -2,7 +2,9 @@
 
 This repository contains a script to simplify the process of handling AppImage files with drag-and-drop functionality. Inspired by macOS where the user can drag and drop an app into the Applications folder
 ![Alt text](readme_src/installmac.png)
+The script will create a folder called Applications in the home users directory. Simply drag and drop an AppImage into that Applications folder, which will create a desktop entry.
 
+Script creates and uses a script made systemd service, to you only need to manually run the script once.
 # Demo
 
 ![Demo](readme_src/demo_w2.webp)
