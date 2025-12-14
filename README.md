@@ -2,6 +2,10 @@
 
 This repository contains a script to simplify the process of handling AppImage files with drag-and-drop functionality. Inspired by macOS where the user can drag and drop an app into the Applications folder
 ![Alt text](readme_src/installmac.png)
+
+# DEMO
+![Demo](readme_src/demo.mp4)
+
 ## Features
 
 - Drag and drop AppImage files for easy management.
@@ -15,6 +19,7 @@ This repository contains a script to simplify the process of handling AppImage f
     git clone https://github.com/yourusername/AppImageDragDrop.git
     cd AppImageDragDrop
     ```
+    Or download the zip file under the green code button
 2. Make the AppImage script executable:
 
 

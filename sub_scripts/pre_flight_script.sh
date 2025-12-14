@@ -33,7 +33,15 @@ else
 	echo "Preping service.."
 	touch ~/autoAppsInstall.service
 cat > ~/autoAppsInstall.service << EOF
-writting to file..
+[Unit]
+Description=Inotify watcher for AppImages
+After=default.target
+[Service]
+ExecStart=%h/scripts/AppImageDragDrop.sh
+Restart=always
+RestartSec=5
+[Install]
+WantedBy=default.target
 EOF
 ##TO DO: Add actual service content later - create another bash script
         echo "Prepared."

@@ -7,7 +7,7 @@ else
 ## End Perform preflight checks---------------------------------------------
 
 
-inotifywait -m -e close_write "$dir" |
+inotifywait -m -e close_write -e "moved_to" "$dir" |
 	while read -r directory event file; do
 		if [[ "$file" == *.AppImage ]]; then
 		echo "New AppImage fully written: $file"
