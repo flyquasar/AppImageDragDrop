@@ -4,6 +4,20 @@ dir=~/Applications/
 icons=~/Applications/.icons/
 file=~/autoAppsInstall.service
 
+targetdir="$HOME/scripts/AppImageDragDrop"
+targetdir=$(realpath -m "$targetdir")
+
+# Get the directory where the script itself resides
+script_dir="$(dirname "$(realpath "$0")")"
+
+if [ "$script_dir" != "$targetdir" ]; then
+    echo "Moving AppImageDragDrop folder to $targetdir..."
+    mkdir -p "$(dirname "$targetdir")"
+    mv "$script_dir" "$targetdir"
+    echo "Folder moved to $targetdir. Please run the script from there."
+    exec "$targetdir/AppImageDragDrop.sh" "$@"
+fi
+
 if [ -d $dir ] && [ -d $icons ];then
 	echo "It exists nothing else to be done."
 else
