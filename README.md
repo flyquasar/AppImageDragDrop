@@ -15,7 +15,10 @@ This repository contains a script to simplify the process of handling AppImage f
     git clone https://github.com/yourusername/AppImageDragDrop.git
     cd AppImageDragDrop
     ```
-
+    
+```Or:
+[![Clone Repo](https://img.shields.io/badge/Clone-Repo-blue?style=for-the-badge&logo=git)](https://github.com/flyquasar/AppImageDragDrop.git)
+```
 2. Make the AppImage script executable:
     ```bash
     chmod +x AppImageDragDrop.sh
