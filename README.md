@@ -50,7 +50,7 @@ This repository contains a script to simplify the process of handling AppImage f
 
 ## Script Overview
 
-- **`AppImageDragDrop.sh`**: Handles AppImage files with drag-and-drop functionality. Use the `remove` parameter to delete AppImages.
+- **`AppImageDragDrop.sh`**: Handles AppImage files with drag-and-drop functionality. Use the `remove` parameter to delete the created systemd service.
 
 ## Requirements
 
