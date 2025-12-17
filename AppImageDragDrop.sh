@@ -18,28 +18,33 @@ if [ "$1" != "runner" ];then
 	exit 0
 fi
 
-inotifywait -m -e close_write -e "moved_to" "$dir" |
-	while read -r directory event file; do
-		if [[ "$file" == *.AppImage ]]; then
-		echo "New AppImage fully written: $file"
-		# safe to extract and copy icons here
-		basename="${file%.*}"
-		#mount appimage to extract
-		cd $dir
-		./$file --appimage-extract
-		cp squashfs-root/*.png $dir.icons/$basename.png
-		rm -rf squashfs-root
-		#end appimage extract
+inotifywait -m -e close_write -e moved_to -e delete -e moved_from "$dir" |
+while read -r directory event file; do
+    if [[ "$file" == *.AppImage ]]; then
+        basename="${file%.*}"
 
-		echo "Adding +x permission to $dir$file"
-		chmod +x "$dir/$file"
-		cat > ~/.local/share/applications/"$basename".desktop << EOF
+        if [[ "$event" == *"CLOSE_WRITE"* || "$event" == *"MOVED_TO"* ]]; then
+            echo "New AppImage detected: $file"
+            cd "$dir"
+			echo "Adding +x permission to $dir$file"
+            chmod +x $file
+            ./$file --appimage-extract
+            cp squashfs-root/*.png "$dir.icons/$basename.png"
+            rm -rf squashfs-root
+
+            cat > ~/.local/share/applications/"$basename".desktop << EOF
 [Desktop Entry]
 Version=1.0
 Icon=$dir.icons/$basename.png
 Type=Application
 Name=$basename
-Exec=$dir$file
+Exec=$dir/$file
 EOF
-		fi
-	done
+        elif [[ "$event" == *"DELETE"* || "$event" == *"MOVED_FROM"* ]]; then
+            echo "AppImage removed: $file"
+            rm -f ~/.local/share/applications/"$basename".desktop
+            rm -f $dir.icons/$basename.png
+        fi
+    fi
+done
+
