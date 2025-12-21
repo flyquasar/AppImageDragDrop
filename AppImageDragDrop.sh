@@ -29,6 +29,14 @@ while read -r directory event file; do
 			echo "Adding +x permission to $dir$file"
             chmod +x $file
             ./$file --appimage-extract
+            #-----get .desktop
+            desktopname=$(ls squashfs-root | grep .desktop)
+            category=$(cat squashfs-root/$desktopname | grep Categories=)
+            dsk=$(cat squashfs-root/$desktopname | grep Name=)
+            echo $desktopname
+            echo $dsk
+            echo $category
+            #-----------------
             cp squashfs-root/*.png "$dir.icons/$basename.png"
             rm -rf squashfs-root
 
@@ -37,8 +45,9 @@ while read -r directory event file; do
 Version=1.0
 Icon=$dir.icons/$basename.png
 Type=Application
-Name=$basename
-Exec=$dir/$file
+$dsk
+$category
+Exec=$dir$file
 EOF
         elif [[ "$event" == *"DELETE"* || "$event" == *"MOVED_FROM"* ]]; then
             echo "AppImage removed: $file"
