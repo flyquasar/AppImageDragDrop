@@ -40,11 +40,11 @@ Script creates and uses a script made systemd service, to you only need to manua
     Running it, it will move it self to ~/scripts/AppImageDragDrop
     This is done for a few reasons:
 
-    📂 Centralized location – All scripts live in one predictable folder (~/scripts/AppImageDragDrop), making them easier to find and manage.
+    - Centralized location – All scripts live in one predictable folder (~/scripts/AppImageDragDrop), making them easier to find and manage.
 
-    🔄 Consistency – Instead of scattering files across different directories, everything is grouped together, reducing confusion.
+    - Consistency – Instead of scattering files across different directories, everything is grouped together, reducing confusion.
 
-    🧹 Easy clean up
+    - Easy clean up
 
 ## Removal
 1. Run the script with the "remove" option to remove the service - Applications folder will be kept:
