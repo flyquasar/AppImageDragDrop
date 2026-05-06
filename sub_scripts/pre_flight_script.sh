@@ -31,6 +31,7 @@ if [ -f $service_file ];then
 	echo "Service file found"
 else
 	echo "Preping service.."
+	mkdir -p $(dirname "$service_file")
 cat > $HOME/.config/systemd/user/autoAppImageInstall.service << EOF
 [Unit]
 Description=service to auto install AppImages dropped in Applications folder
