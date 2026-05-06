@@ -33,9 +33,9 @@ Script creates and uses a script made systemd service, to you only need to manua
     chmod +x AppImageDragDrop.sh
     ```
 
-3. Run the script:
+3. Run the script as sudo:
     ```bash
-    ./AppImageDragDrop.sh
+    sudo ./AppImageDragDrop.sh
     ```
     Running it, it will move it self to ~/scripts/AppImageDragDrop
     This is done for a few reasons:
